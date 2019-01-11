@@ -1,0 +1,62 @@
+{
+  "name": "data-layer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "",
+  "author": "nverba <distantstate@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
+    "babel-preset-latest": "^6.24.1",
+    "eslint": "^4.19.1",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jest": "^21.15.0",
+    "jest": "^22.4.3",
+    "redux": "^3.7.2"
+  },
+  "babel": {
+    "presets": [
+      "latest"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended"
+    ],
+    "env": {
+      "es6": true,
+      "browser": true,
+      "jest/globals": true
+    },
+    "rules": {
+      "semi": [
+        "warn"
+      ],
+      "no-console": [
+        0
+      ],
+      "no-mixed-spaces-and-tabs": [
+        "warn"
+      ],
+      "import/no-unresolved": 2
+    },
+    "globals": {
+      "firebase": true
+    },
+    "parserOptions": {
+      "ecmaVersion": 2017,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "import",
+      "jest"
+    ]
+  }
+}
