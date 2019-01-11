@@ -1,0 +1,8 @@
+---
+to: <%= app %>/src/flows/<%= h.inflection.dasherize(name) %>/<%= h.inflection.dasherize(name) %>.flow.js
+---
+export const <%= h.inflection.camelize(name, true) %> = ({ get, post, authenticated, select }) => {
+  return [
+    { id: "myId", fn: () => ({}), store: 'UPDATE' },
+  ]
+}

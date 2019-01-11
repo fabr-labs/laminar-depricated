@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    Select a Demo
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/restaurant-booking-demo">Restaurant Bookings</router-link>
     </div>
     <router-view/>
   </div>
