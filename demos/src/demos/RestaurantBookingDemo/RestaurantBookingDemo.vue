@@ -3,7 +3,7 @@
 
     <h1>Booking Demo</h1>
 
-    <button v-on:click="flowAction('about')">Request Date</button>
+    <button v-on:click="loadDates">Request Date</button>
    
   </div>
 </template>
@@ -11,10 +11,28 @@
 <script>
 
   // import { flowActions } from "../data-layer/bindings/vue-flow-actions-mixin.js"
+  import { createUserFlow } from "../../../../src/user-flow/create-user-flow.js";
+  import { vuexStoreMiddleware } from "../../../../src/user-flow/middleware/vuex-store/vuex-store-middleware.js";
+  import vuex from "../../store.js";
+
+  const middleware = [vuexStoreMiddleware(vuex)];
+  const userFlow = createUserFlow({ middleware });
+
+  import { loadDates } from "./flows/load-dates.flow.js";
+
+  console.log(userFlow)
 
   export default {
     name: 'restaurant-booking-demo',
-    // mixins: [flowActions]
+    // mixins: [flowActions],
+    mounted() {
+      
+    },
+    methods: {
+      loadDates() {
+        userFlow.pushFlow({  });  // flow: loadDates
+      }
+    }
   }
 
 </script>

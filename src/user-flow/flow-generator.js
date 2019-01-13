@@ -1,6 +1,6 @@
 import { applyMiddleware } from "../utilities/apply-middleware.js";
 import { callWithProperty } from "./call-with-property.js";
-import { StepMissingFns } from "./errors/custom-errors.js"; 
+import { MissingFnsError } from "./errors/custom-errors.js"; 
 
 export function* flowGenerator({ flow, middleware }){
 
@@ -21,7 +21,7 @@ export function* flowGenerator({ flow, middleware }){
       }
 
       if (!step.fn && !step.fns) {
-        throw new StepMissingFns(`A directive must contain either a 'fn' property passing a single function to be called, or a 'fns' property passing an array of functions to be called asynchronously.`, { flowID: flow.id, stepIndex: index  });
+        throw new MissingFnsError(`A directive must contain either a 'fn' property passing a single function to be called, or a 'fns' property passing an array of functions to be called asynchronously.`, { flowID: flow.id, stepIndex: index  });
       }
 
     } catch (error) {
