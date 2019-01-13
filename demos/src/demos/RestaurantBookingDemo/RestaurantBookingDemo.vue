@@ -30,7 +30,7 @@
     },
     methods: {
       loadDates() {
-        userFlow.pushFlow({  });  // flow: loadDates
+        userFlow.pushFlow({ flow: loadDates });
       }
     }
   }

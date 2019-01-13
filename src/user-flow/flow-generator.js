@@ -1,23 +1,18 @@
 import { applyMiddleware } from "../utilities/apply-middleware.js";
-import { callWithProperty } from "./call-with-property.js";
 import { MissingFnsError } from "./errors/custom-errors.js"; 
 
 export function* flowGenerator({ flow, middleware }){
-
-  console.log(flow, middleware);
-
-  console.log(flow);
 
   for (let [index, step] of flow.entries()) {
 
     try {
 
       if (step.fns) {
-        yield Promise.all(step.fns.map(asyncStep => applyMiddleware(callWithProperty(asyncStep.fn, 'args'), middleware)(asyncStep)));
+        yield Promise.all(step.fns.map(asyncStep => applyMiddleware(({ fn, args }) => fn(args), middleware)(asyncStep)));
       }
 
       if (step.fn) {
-        yield applyMiddleware(callWithProperty(step.fn, 'args'), middleware)(step);
+        yield applyMiddleware(({ fn, args }) => fn(args), middleware)(step);
       }
 
       if (!step.fn && !step.fns) {
