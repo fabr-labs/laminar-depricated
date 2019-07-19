@@ -1,7 +1,0 @@
----
-inject: true
-append: true
-to: <%= app %>/src/reducers/reducers.index.js
-skip_if: "./reducers/<%= h.inflection.dasherize(name) %>/<%= h.inflection.dasherize(name) %>.reducer.js"
----
-export * from "./<%= h.inflection.dasherize(name) %>/<%= h.inflection.dasherize(name) %>.reducer.js";
