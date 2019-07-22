@@ -1,4 +1,4 @@
-import { required, Reflow_MissingPromise } from "./errors.js";
+import { required, MissingPromise } from "./errors.js";
 
 export function createPromiseCache() {
   const PromisesCache = new Map();
@@ -30,7 +30,7 @@ export function createPromiseCache() {
       return PromisesCache.get(id);
     } catch (error) {
       if (!PromisesCache.has(id)) {
-        throw new Reflow_MissingPromise(`!!! Promise id ${id} not found !!!`);
+        throw new MissingPromise(`!!! Promise id ${id} not found !!!`);
       }
       throw error;
     }
