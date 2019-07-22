@@ -11,22 +11,23 @@ export class FunctionError extends LaminarError {}
 export class flowGeneratorFnError extends LaminarError {
   constructor(message, { flowId, step }) {
     super();
-    this.flowId    = flowId;
-    this.message   = message;
+    this.flowId = flowId;
+    this.message = message;
     this.step = step;
   }
 }
 
-export class MissingCallsError extends LaminarError {
+export class MissingCallerError extends LaminarError {
   constructor(message, { flowId, step }) {
     super(message, { flowId, step });
+    console.error(message)
   }
 }
 
 export class CreateFlowError extends LaminarError {
   constructor(message) {
     super();
-    this.message   = message;
+    this.message = message;
   }
 }
 

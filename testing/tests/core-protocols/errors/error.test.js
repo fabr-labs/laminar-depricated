@@ -14,8 +14,8 @@ describe('Error directives', () => {
   });
 
   test('It returns an error when call and calls are both undefined', async () => {
-    // expect.assertions(2);
-    // expect(console.error).toHaveBeenCalledTimes(1);
-    // expect(console.error).toHaveBeenCalledWith(`A directive must contain either a 'call' property passing a single function to be called, or a 'calls' property passing an array of functions to be called asynchronously.`, { "id": "id1" });
+    expect.assertions(2);
+    expect(console.error).toHaveBeenCalledTimes(1);
+    expect(console.error).toHaveBeenCalledWith(`A directive must contain either a 'call' property passing a single function to be called, or a 'calls' property passing an array of functions to be called asynchronously.`, { "id": "id1" });
   });
 });

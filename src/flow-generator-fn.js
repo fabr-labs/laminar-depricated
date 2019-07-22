@@ -1,5 +1,5 @@
 import { applyMiddleware } from "./utilities/apply-middleware.js";
-import { MissingCallsError } from "./errors/custom-errors.js"; 
+import { MissingCallerError } from "./errors/custom-errors.js"; 
 
 export function* flowGeneratorFn({ flow, flowId, middleware }){
 
@@ -16,18 +16,13 @@ export function* flowGeneratorFn({ flow, flowId, middleware }){
       }
 
       if (!step.call && !step.calls) {
-        throw new MissingCallsError(`A directive must contain either a 'call' property passing a single function to be called, or a 'calls' property passing an array of functions to be called asynchronously.`, { flowId, step: index });
+        throw new MissingCallerError(`A step must contain either a 'call' property referencing a single function to be called, or a 'calls' property referencing an array of functions to be called asynchronously.`, { flowId, step: index });
       }
 
     } catch (error) {
+      // console.error(error.stack);
 
-      console.warn('CAUGHT ERROR IN APP');
 
-      console.log(error.stack);
-
-      // console.log(flow);
-
-      // console.warn(step);
       throw error;
     }
   }
