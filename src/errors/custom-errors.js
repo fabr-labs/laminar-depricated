@@ -8,7 +8,7 @@ export class LaminarError extends Error {
 export class DirectiveError extends LaminarError {}
 export class FunctionError extends LaminarError {}
 
-export class FlowGeneratorError extends LaminarError {
+export class flowGeneratorFnError extends LaminarError {
   constructor(message, { flowId, step }) {
     super();
     this.flowId    = flowId;

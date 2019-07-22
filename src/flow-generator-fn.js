@@ -1,7 +1,7 @@
 import { applyMiddleware } from "./utilities/apply-middleware.js";
 import { MissingCallsError } from "./errors/custom-errors.js"; 
 
-export function* flowGenerator({ flow, flowId, middleware }){
+export function* flowGeneratorFn({ flow, flowId, middleware }){
 
   for (let [index, step] of flow.entries()) {
 
