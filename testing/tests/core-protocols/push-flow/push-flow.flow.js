@@ -1,10 +1,10 @@
-import { testFn } from "../../../helpers/test-fn.js";
-import { fnFlow } from "../fn/fn.flow.js";
+import { testCall } from "../../../helpers/test-call.js";
+import { callFlow } from "../call/call.flow.js";
 
 export function pushFlow() { 
   return [
-    { id: "id1b", fn: testFn, args: 'step-1b' },
-    { id: "id2b", fn: this.pushFlow, args: { flow: fnFlow }},
-    { id: "id3b", fn: testFn, args: 'step-3b' }
+    { id: "id1b", call: testCall, args: 'step-1b' },
+    { id: "id2b", call: this.pushFlow, args: { flow: callFlow }},
+    { id: "id3b", call: testCall, args: 'step-3b' }
   ];
 }

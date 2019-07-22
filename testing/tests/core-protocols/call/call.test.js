@@ -1,15 +1,15 @@
 import { flow, steps } from "../../../setup/create-test-flow.js";
-import { fnFlow } from "./fn.flow.js";
+import { callFlow } from "./call.flow.js";
 
 
-describe('Core protocols', () => {
+describe('Core directives', () => {
 
   beforeAll(() => {
     steps.cleanup();
-    flow.pushFlow({ flow: fnFlow });
+    flow.pushFlow({ flow: callFlow });
   });
 
-  test('It runs the fn protocol', async () => {
+  test('It runs the call directives', async () => {
     expect.assertions(3);
 
     const response1 = await steps.on({ id: 'id1' });

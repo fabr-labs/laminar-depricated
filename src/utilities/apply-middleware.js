@@ -1,3 +1,3 @@
-export function applyMiddleware(fn, middlewares) {
-  return middlewares.reduce((fn, middleware) => middleware(fn), fn);
+export function applyMiddleware(call, middlewares) {
+  return middlewares.reduce((call, middleware) => middleware(call), call);
 }

@@ -1,5 +1,5 @@
 
-import { createUserFlow } from "../../src/user-flow/create-user-flow.js";
+import { createFlow } from "../../src/create-flow.js";
 import { testingMiddleware } from "../middleware/testing-middleware.js";
 // import { promiseWaitMiddleware } from "../../src/middleware/promise-wait/promise-wait-middleware.js";
 import { testReducer } from "../reducers/test-reducer.js";
@@ -10,4 +10,4 @@ export const steps = testingMiddleware();
 
 const middleware = [steps.middleware];
 
-export const flow = createUserFlow({ middleware });
+export const flow = createFlow({ middleware });

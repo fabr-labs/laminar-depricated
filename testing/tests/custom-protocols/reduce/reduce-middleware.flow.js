@@ -3,6 +3,6 @@ import { data2 } from "../../../mock-data/simple-data.js";
 
 export function reduceFlow() { 
   return [
-    { id: "id1", fn: fakeFetch, args: data2, reduce: data => data.map(val => val + 1) },
+    { id: "id1", call: fakeFetch, args: data2, reduce: data => data.map(val => val + 1) },
   ];
 }

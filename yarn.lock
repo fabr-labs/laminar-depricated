@@ -1899,9 +1899,9 @@ is-fullwidth-code-point@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/is-fullwidth-code-point/-/is-fullwidth-code-point-2.0.0.tgz#a3b30a5c4f199183167aaab93beefae3ddfb654f"
 
-is-generator-fn@^1.0.0:
+is-generator-call@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/is-generator-fn/-/is-generator-fn-1.0.0.tgz#969d49e1bb3329f6bb7f09089be26578b2ddd46a"
+  resolved "https://registry.yarnpkg.com/is-generator-call/-/is-generator-call-1.0.0.tgz#969d49e1bb3329f6bb7f09089be26578b2ddd46a"
 
 is-glob@^2.0.0, is-glob@^2.0.1:
   version "2.0.1"
@@ -2179,7 +2179,7 @@ jest-jasmine2@^22.4.4:
     co "^4.6.0"
     expect "^22.4.0"
     graceful-fs "^4.1.11"
-    is-generator-fn "^1.0.0"
+    is-generator-call "^1.0.0"
     jest-diff "^22.4.0"
     jest-matcher-utils "^22.4.0"
     jest-message-util "^22.4.0"
@@ -2561,7 +2561,7 @@ mem@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
   dependencies:
-    mimic-fn "^1.0.0"
+    mimic-call "^1.0.0"
 
 merge-stream@^1.0.1:
   version "1.0.1"
@@ -2619,9 +2619,9 @@ mime-types@^2.1.12, mime-types@~2.1.19:
   dependencies:
     mime-db "1.40.0"
 
-mimic-fn@^1.0.0:
+mimic-call@^1.0.0:
   version "1.2.0"
-  resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
+  resolved "https://registry.yarnpkg.com/mimic-call/-/mimic-call-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
 
 minimatch@^3.0.2, minimatch@^3.0.3, minimatch@^3.0.4:
   version "3.0.4"
@@ -2869,7 +2869,7 @@ onetime@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/onetime/-/onetime-2.0.1.tgz#067428230fd67443b2794b22bba528b6867962d4"
   dependencies:
-    mimic-fn "^1.0.0"
+    mimic-call "^1.0.0"
 
 optimist@^0.6.1:
   version "0.6.1"

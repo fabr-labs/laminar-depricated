@@ -1,7 +1,7 @@
 import { flow, steps } from "../../../setup/create-test-flow-with-reduce-middleware.js";
 import { reduceFlow } from "./reduce-middleware.flow.js";
 
-describe('Custom protocols', () => {
+describe('Custom directives', () => {
 
   beforeAll(() => {
     steps.cleanup();

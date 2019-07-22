@@ -1,7 +1,7 @@
 import { flow, steps, store } from "../../../setup/create-test-flow-with-store-middleware.js";
 import { storeFlow } from "./redux-store-middleware.flow.js";
 
-describe('Custom protocols', () => {
+describe('Custom directives', () => {
 
   beforeAll(() => {
     steps.cleanup();
