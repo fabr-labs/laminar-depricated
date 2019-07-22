@@ -1,9 +1,9 @@
-import { testCall } from "../../../helpers/test-call.js";
+import { testFn } from "../../../helpers/test-fn.js";
 
 export function errorFlow() { 
   return [
     { id: "id1" },
-    { id: "id2", call: testCall, args: 'step-2' },
-    { id: "id3", call: testCall, args: 'step-3' }
+    { id: "id2", call: testFn, args: 'step-2' },
+    { id: "id3", call: testFn, args: 'step-3' }
   ];
 }

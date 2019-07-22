@@ -1,4 +1,4 @@
-export function delayCall(data, delay=100) {
+export function delayFn(data, delay=100) {
   return new Promise(resolve => {
     setTimeout(function() {
       resolve(data);
