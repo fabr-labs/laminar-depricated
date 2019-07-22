@@ -8,11 +8,11 @@ export function* flowGenerator({ flow, flowId, middleware }){
     try {
 
       if (step.calls) {
-        yield Promise.all(step.calls.map(asyncStep => applyMiddleware(({ call, args }) => call(args), middleware)(asyncStep)));
+        yield Promise.all(step.calls.map(asyncStep => applyMiddleware(({ call, args }) => call.call(this, args), middleware)(asyncStep)));
       }
 
       if (step.call) {
-        yield applyMiddleware(({ call, args }) => call(args), middleware)(step);
+        yield applyMiddleware(({ call, args }) => call.call(this, args), middleware)(step);
       }
 
       if (!step.call && !step.calls) {
