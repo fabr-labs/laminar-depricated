@@ -1,5 +1,5 @@
 import { flowGeneratorFn } from "./flow-generator-fn.js";
-import { throwMissingFlowError } from "./errors/custom-errors.js";
+import { throwMissingFlowError } from "./errors/laminar-errors.js";
 
 export function createFlow({ middleware=[], idPool=1 }) {
   return {

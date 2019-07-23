@@ -11,16 +11,9 @@ export class FunctionError extends LaminarError {}
 export class flowGeneratorFnError extends LaminarError {
   constructor(message, { flowId, step }) {
     super();
-    this.flowId = flowId;
     this.message = message;
+    this.flowId = flowId;
     this.step = step;
-  }
-}
-
-export class MissingCallerError extends LaminarError {
-  constructor(message, { flowId, step }) {
-    super(message, { flowId, step });
-    console.error(message)
   }
 }
 
@@ -31,12 +24,19 @@ export class CreateFlowError extends LaminarError {
   }
 }
 
-export class MissingFlowError extends LaminarError {
+export class MissingCallerError extends flowGeneratorFnError {
+  constructor({ flowId, step }) {
+    super(`A step must contain either a "call" property referencing a single function to be called, or a "calls" property referencing an array of functions to be called asynchronously.`, { flowId, step });
+  }
+}
+
+export class MissingFlowError extends flowGeneratorFnError {
   constructor(message) {
     super(message);
   }
 }
 
+// Default property guard.
 export function throwMissingFlowError() {
   throw new MissingFlowError('Missing flow from flow.pushFlow({ flow: Function })');
 }

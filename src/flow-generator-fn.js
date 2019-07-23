@@ -1,5 +1,5 @@
 import { applyMiddleware } from "./utilities/apply-middleware.js";
-import { MissingCallerError } from "./errors/custom-errors.js"; 
+import { MissingCallerError } from "./errors/laminar-errors.js"; 
 
 export function* flowGeneratorFn({ flow, flowId, middleware }){
 
@@ -16,7 +16,7 @@ export function* flowGeneratorFn({ flow, flowId, middleware }){
       }
 
       if (!step.call && !step.calls) {
-        throw new MissingCallerError(`A step must contain either a 'call' property referencing a single function to be called, or a 'calls' property referencing an array of functions to be called asynchronously.`, { flowId, step: index });
+        throw new MissingCallerError({ flowId, step: index });
       }
 
     } catch (error) {
