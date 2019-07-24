@@ -4,7 +4,7 @@
   "author": "nverba <distantstate@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "jest"
   },
