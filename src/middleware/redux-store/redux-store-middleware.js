@@ -5,10 +5,10 @@ export const reduxStoreMiddleware = store => next => directive => {
   if (directive.store) {
     if (result.then) {
       result.then(response => {
-        store.dispatch({ type: directive.store, data: response });
+        store.dispatch({ type: directive.store, [directive.as || 'data']: response });
       });
     } else {
-      store.dispatch({ type: directive.store, data: result });
+      store.dispatch({ type: directive.store, [directive.as || 'data']: result });
     }
   }
 
