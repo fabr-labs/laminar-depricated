@@ -26,6 +26,7 @@ export class CreateFlowError extends LaminarError {
 
 export class MissingCallerError extends flowGeneratorFnError {
   constructor({ flowId, step }) {
+    console.error(`MissingCallerError - flow: ${ flowId }, step: ${ step + 1 } (index: ${ step })`);
     super(`A step must contain either a "call" property referencing a single function to be called, or a "calls" property referencing an array of functions to be called asynchronously.`, { flowId, step });
   }
 }
