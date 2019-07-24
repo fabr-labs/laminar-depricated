@@ -1,7 +1,9 @@
 export const reduxStoreMiddleware = store => next => directive => {
 
-  const result = next(directive);
+  // Handle direct dispatch.
+  const result = next(directive.dispatch ? { call: () => store.dispatch(directive.dispatch), ...directive } : directive);
 
+  // Save response to store.
   if (directive.store) {
     if (result.then) {
       result.then(response => {
@@ -10,10 +12,6 @@ export const reduxStoreMiddleware = store => next => directive => {
     } else {
       store.dispatch({ type: directive.store, [directive.as || 'data']: result });
     }
-  }
-
-  if (directive.dispatch) {
-    return { call: () => store.dispatch(directive.dispatch), ...directive }
   }
 
   return result;
