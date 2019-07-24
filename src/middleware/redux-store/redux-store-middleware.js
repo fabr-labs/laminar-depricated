@@ -12,6 +12,10 @@ export const reduxStoreMiddleware = store => next => directive => {
     }
   }
 
+  if (directive.dispatch) {
+    return { call: () => store.dispatch(directive.dispatch), ...directive }
+  }
+
   return result;
 
 };
