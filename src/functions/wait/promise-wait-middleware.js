@@ -1,6 +1,6 @@
 import { createWait } from "./wait.js";
 
-export const promiseWaitMiddleware = () => {
+export const waitMiddleware = () => {
 
   const promiseStore = createWait();
 
