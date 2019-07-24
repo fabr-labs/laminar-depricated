@@ -4,6 +4,7 @@
   "author": "nverba <distantstate@gmail.com>",
   "license": "MIT",
   "private": false,
+  "main": "index.js",
   "scripts": {
     "test": "jest"
   },
@@ -12,6 +13,7 @@
     "@babel/preset-env": "^7.5.5",
     "babel-core": "^6.26.0",
     "babel-jest": "^24.8.0",
+    "gitpkg": "^1.0.0-beta.1",
     "jest": "^24.8.0",
     "redux": "^4.0.4"
   },
