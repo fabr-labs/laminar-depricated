@@ -7,6 +7,11 @@ export interface Step {
     [key: string]: any;
   };
   args?: any;
+  wait?: {
+    on: string;
+    async?: boolean;
+  },
+  pushFlow?: (any) => (any) => Flow;
 }
 
 export interface Flow {
