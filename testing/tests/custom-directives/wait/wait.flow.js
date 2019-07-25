@@ -1,16 +1,10 @@
-import { wait, resolveWait, removeWait } from "../../../../src/functions/wait/promise-wait-function.js";
-
 export function waitFlow() { 
   return [
     { id: "zid1", call: () => false },
-    { id: "zid2", call: wait, args: { on: 'waitTest' }},
+    { id: "zid2", wait: { on: 'waitTest' }},
     { id: "zid3", call: () => true },
   ];
 }
-
-
-
-
 
 
 // { id: "id1", wait: { on: 'somethingAsync' }},

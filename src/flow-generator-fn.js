@@ -8,21 +8,13 @@ export function* flowGeneratorFn({ flow, flowId, middleware }){
     try {
 
       if (step.calls) {
-        yield Promise.all(step.calls.map(asyncStep => applyMiddleware(({ call, args }) => call.call(this, args), middleware)(asyncStep)));
-      }
-
-      if (step.call) {
-        yield applyMiddleware(({ call, args }) => call.call(this, args), middleware)(step);
-      }
-
-      if (!step.call && !step.calls) {
-        throw new MissingCallerError({ flowId, step: index });
+        yield Promise.all(step.calls.map(asyncStep => applyMiddleware(({ call: fn, args }) => fn.call(this, args), middleware)(asyncStep)));
+      } else {
+        yield applyMiddleware(({ call: fn, args }) => fn.call(this, args), middleware)(step);
       }
 
     } catch (error) {
-      // console.error(error.stack);
-
-
+      // todo - handle errors.
       throw error;
     }
   }
