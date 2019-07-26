@@ -1,6 +1,5 @@
 import { applyMiddleware } from "./utilities/apply-middleware.js";
 import { MissingCallerError } from "./errors/laminar-errors.js"; 
-import { chainFunctions } from "../notes/chain-functions.js"; 
 
 export function* flowGeneratorFn({ flow, flowId, middleware }){
 
