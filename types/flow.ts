@@ -11,7 +11,9 @@ export interface Step {
     on: string;
     async?: boolean;
   },
-  pushFlow?: (any) => (any) => Flow;
+  pushFlow?: (any) => (any) => {
+    flow: Flow;
+  };
   saveResponse?: string;
   useResponse?: string;
 }
