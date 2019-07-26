@@ -10,8 +10,8 @@ export function saveResponse() {
 
 export function saveResponseAsPushFlowArg() { 
   return [
-    { id: "id1b", call: () => ({ saved: true }), saveResponse: 'savedKey' },
-    { id: "id2b", pushFlow: (args) => ({ flow: args.useFlow ? () => {} : callFlow }), args: { useFlow: false }, context: this },
-    { id: "id3b", call: (args) => args, args: { passed: true }}
+    { id: "id1b", call: () => ({ useFlow: true }), saveResponse: 'savedKey2' },
+    { id: "id2b", useResponse: 'savedKey2', pushFlow: (args) => ({ flow: args.savedKey2.useFlow ? callFlow : () => {} }), context: this },
+    { id: "id3b", call: testFn, args: 'step-3b' }
   ];
 }
