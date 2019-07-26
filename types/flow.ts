@@ -16,7 +16,7 @@ export interface Step {
   };
   saveResponse?: string;
   useResponse?: string;
-  context: any;
+  context?: any;
 }
 
 export interface Flow {
