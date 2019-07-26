@@ -1,16 +1,16 @@
 import { applyMiddleware } from "./utilities/apply-middleware.js";
 import { MissingCallerError } from "./errors/laminar-errors.js"; 
-import { chainFunctions } from "./utilities/chain-functions"; 
+import { chainFunctions } from "../notes/chain-functions.js"; 
 
 export function* flowGeneratorFn({ flow, flowId, middleware }){
 
-  for (let [index, step] of flow.entries()) {
+  for (let [index, directive] of flow.entries()) {
     try {
 
-      if (step.calls) {
-        yield Promise.all(step.calls.map(asyncStep => applyMiddleware(({ call: fns, args }) => chainFunctions(fns, args), middleware)(asyncStep)));
+      if (directive.calls) {
+        yield Promise.all(directive.calls.map(asyncDirective => applyMiddleware(({ call: fn, args }) => fn.call(this, args), middleware)(asyncDirective)));
       } else {
-        yield applyMiddleware(({ call: fns, args }) => chainFunctions(fns, args), middleware)(step);
+        yield applyMiddleware(({ call: fn, args }) => fn.call(this, args), middleware)(directive);
       }
 
     } catch (error) {
