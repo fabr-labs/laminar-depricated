@@ -1,6 +1,6 @@
 # Laminar flow controller.
 
-### Core concepts:
+### Core concepts:.
 
 A laminar flow controller steps through arrays of instructions (called flows), and executes each step in turn, each after the last has completed.
 
@@ -16,11 +16,15 @@ someFunction({ someArg: true });
 ```
 OK, so far, so pretty basic!
 
-The call directive can also take asynchronous functions that return a promise as a value.  When this happens each step will wait for the promise to complete before starting the next step. So in this way, we can execute asynchronous code in a synchronous way.
+The call directive can also take asynchronous functions that return a promise as a value.  When this happens each step will wait for the promise to complete before starting the next step. 
+
+So, in this way, we can execute asynchronous code in a synchronous way.
 
 But what about actually executing asynchronous code when we don't care about order of execution?
 
-Instead of using the call directive we can pass an array of steps to the calls directive. This time, the flowController will wait for all the steps to return before executing the next. This works for synchronous and asynchronous functions (ala Promise.all)
+Instead of using the call directive we can pass an array of steps to the calls directive. This time, the flowController will wait for all the steps to return before executing the next. 
+
+This works for synchronous and asynchronous functions (à la Promise.all).
 
 ```JavaScript
 {
