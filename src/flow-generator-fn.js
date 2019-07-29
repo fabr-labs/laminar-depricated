@@ -13,8 +13,13 @@ export function* flowGeneratorFn({ flow, flowId, middleware }){
       }
 
     } catch (error) {
-      // todo - handle errors.
-      throw error;
+
+      if (directive.onError) {
+        // yield applyMiddleware(({ call: fn, args }) => fn.call(this, args), directive.onError)(directive);
+      } else {
+        throw error;
+      }
+
     }
   }
 }
