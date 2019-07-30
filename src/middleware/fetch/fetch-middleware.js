@@ -1,4 +1,4 @@
-export const reduxFetchMiddleware = ({ get, put, post, delete: del }) => next => directive => {
+export const fetchMiddleware = ({ get, put, post, delete: del }) => next => directive => {
 
   if (directive.get) {
     return { call: get, args: directive.get, ...directive }
