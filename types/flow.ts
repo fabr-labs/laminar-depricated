@@ -17,6 +17,16 @@ export interface Step {
   saveResponse?: string;
   useResponse?: string;
   context?: any;
+  get?: string;
+  put?: { url: string, body: {
+    [key: string]: any;
+  }};
+  post?: { url: string, body: {
+    [key: string]: any;
+  }};
+  delete?: { url: string, body: {
+    [key: string]: any;
+  }};
 }
 
 export interface Flow {
