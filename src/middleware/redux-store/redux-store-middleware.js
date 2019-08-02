@@ -1,4 +1,4 @@
-export const reduxStoreMiddleware = store => next => directive => {
+export const reduxStoreMiddleware = store => next => ({ directive, meta }) => {
 
   // Handle direct dispatch.
   const result = next(directive.dispatch ? { call: () => store.dispatch(directive.dispatch), ...directive } : directive);

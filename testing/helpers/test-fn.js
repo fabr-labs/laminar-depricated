@@ -1,1 +1,4 @@
-export const testFn = arg => arg;
+export const testFn = arg => {
+  console.log(arg)
+  return arg;
+};

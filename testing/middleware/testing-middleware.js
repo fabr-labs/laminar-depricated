@@ -12,10 +12,10 @@ export const testingMiddleware = () => {
   
   return {
 
-    middleware: next => directive => {
+    middleware: next => ({ directive, meta }) => {
 
       const id = directive.id;
-      const result = next(directive);
+      const result = next({ directive, meta });
 
       if (result && result.then) {
         result.then(response => {

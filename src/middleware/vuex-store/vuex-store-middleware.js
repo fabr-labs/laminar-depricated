@@ -1,6 +1,6 @@
-export const vuexStoreMiddleware = store => next => directive => {
+export const vuexStoreMiddleware = store => next => ({ directive, meta }) => {
 
-  const result = next(directive);
+  const result = next({ directive, meta });
 
   if (directive.storeCommit) {
     if (result.then) {

@@ -1,4 +1,9 @@
-export const pushFlowMiddleware = next => directive => {
+export const pushFlowMiddleware = next => ({ directive, meta }) => {
+
+  console.log('pushFlowMiddleware', this);
+
+  console.log('directive', directive)
+
   if (directive.pushFlow) {
     if (directive.pushFlow.flow) {
        // Manage plain object passed as push flow argument.
@@ -8,5 +13,5 @@ export const pushFlowMiddleware = next => directive => {
       return next({ call: (args) => { directive._context.pushFlow({ ...directive.pushFlow(args), args: directive.args }) }, ...directive  });
     }
   }
-  return next(directive)
+  return next({ directive, meta })
 };

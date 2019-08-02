@@ -1,4 +1,4 @@
-export const fetchMiddleware = ({ get, put, post, delete: del }) => next => directive => {
+export const fetchMiddleware = ({ get, put, post, delete: del }) => next => ({ directive, meta }) => {
 
   if (directive.get) {
     return next({ call: get, args: directive.get, ...directive });
@@ -16,5 +16,5 @@ export const fetchMiddleware = ({ get, put, post, delete: del }) => next => dire
     return next({ call: del, args: directive.delete, ...directive });
   }
 
-  return  next(directive);
+  return  next({ directive, meta });
 };
