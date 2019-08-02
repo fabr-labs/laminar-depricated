@@ -1,5 +1,5 @@
 import { flow, steps } from "../../../setup/create-test-flow.js";
-import { saveResponse, saveResponseAsPushFlowArg } from "./save-response.flow.js";
+import { saveResponse, useResponseAsPushFlowArg } from "./save-response.flow.js";
 
 describe('Core directives', () => {
 
@@ -15,15 +15,15 @@ describe('Core directives', () => {
     expect(response).toEqual({ savedKey1: { saved: true }, passed: true });
   });
 
-  test('It pushes a flow with a function as an argument', async () => {
-    flow.pushFlow({ flow: saveResponseAsPushFlowArg });
+  test('It saves a response from and passes it as an argument', async () => {
+    flow.pushFlow({ flow: useResponseAsPushFlowArg });
     expect.assertions(5);
 
     const response1 = await steps.on({ id: 'id1b' });
     expect(response1).toStrictEqual({ useFlow: true });
 
     const response2 = await steps.on({ id: 'id1' });
-    expect(response2).toBe('step-1');
+    expect(response2).toStrictEqual({passed: true});
 
     const response3 = await steps.on({ id: 'id2' });
     expect(response3).toBe('step-2');

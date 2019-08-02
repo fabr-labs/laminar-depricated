@@ -16,10 +16,10 @@ export function saveResponse() {
   ];
 }
 
-export function saveResponseAsPushFlowArg() { 
+export function useResponseAsPushFlowArg() { 
   return [
     { id: "id1b", call: () => ({ useFlow: true }), saveResponse: 'savedKey2' },
-    { id: "id2b", useResponse: 'savedKey2', pushFlow: (args) => ({ flow: args.savedKey2.useFlow ? secondaryFlow : () => {} }), args: { passed: true }, context: this },
+    { id: "id2b", useResponse: 'savedKey2', pushFlow: (args) => ({ flow: args.savedKey2.useFlow ? secondaryFlow : () => {} }), args: { passed: true }},
     { id: "id3b", call: testFn, args: 'step-3b' }
   ];
 }

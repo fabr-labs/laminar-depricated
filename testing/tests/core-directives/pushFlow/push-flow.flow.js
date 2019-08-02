@@ -11,7 +11,7 @@ export function secondaryFlow(args) {
 export function pushFlowFn() { 
   return [
     { id: "id1b", call: testFn, args: 'step-1b' },
-    { id: "id2b", pushFlow: (args) => ({ flow: args.useFlow ? () => {} : secondaryFlow }), args: { useFlow: false }, context: this },
+    { id: "id2b", pushFlow: (args) => ({ flow: args.useFlow ? () => {} : secondaryFlow }), args: { useFlow: false }},
     { id: "id3b", call: testFn, args: 'step-3b' }
   ];
 }
