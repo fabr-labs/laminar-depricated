@@ -38,8 +38,8 @@ function throwError() {
   throw new Error('ERR !! BEEP BOOP !!');
 }
 
-function retryFetch({ flow, flowId, directive, context, error }) {
-  console.warn('RETRY FETCH HANDLER!!!!', { flow, flowId, directive, context, error });
+function retryFetch({ flow, flowId, directive, meta, error }) {
+  console.warn('RETRY FETCH HANDLER!!!!', { flow, flowId, directive, meta, error });
 }
 
 

@@ -19,7 +19,7 @@ export function pushFlowFn() {
 export function pushFlow() { 
   return [
     { id: "id1b", call: testFn, args: 'step-1b' },
-    { id: "id2b", pushFlow: { flow: secondaryFlow }, context: this },
+    { id: "id2b", pushFlow: { flow: secondaryFlow }},
     { id: "id3b", call: testFn, args: 'step-3b' }
   ];
 }
