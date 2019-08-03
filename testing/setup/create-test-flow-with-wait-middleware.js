@@ -1,5 +1,5 @@
 
-import { createFlow } from "../../src/create-flow.js";
+import { createFlow } from "../../src/flow.create.js";
 import { testingMiddleware } from "../middleware/testing-middleware.js";
 import { waitMiddleware } from "../../src/middleware/wait/wait-middleware.js";
 import { testReducer } from "../reducers/test-reducer.js";

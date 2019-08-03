@@ -1,8 +1,9 @@
 import { errorHandler } from "./flow.error.js";
+import { throwMissingCallerError } from "./errors/laminar-errors.js"
 
 export function callFn({ directive, meta }) {
 
-  const { call: fn, args } = directive;
+  const { call: fn = throwMissingCallerError(meta), args } = directive;
 
   try {
 

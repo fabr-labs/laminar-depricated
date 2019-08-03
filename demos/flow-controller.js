@@ -1,4 +1,4 @@
-import { createFlow } from '../src/create-flow.js';
+import { createFlow } from '../src/flow.create.js';
 import { waitMiddleware } from '../src/middleware/wait/wait-middleware.js';
 import { reduceMiddleware } from '../src/middleware/reduce/reduce-middleware.js';
 import { pushFlowMiddleware } from '../src/middleware/push-flow/push-flow-middleware.js';
