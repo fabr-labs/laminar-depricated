@@ -1,4 +1,4 @@
-import { errorHandler } from "./laminar.error.js";
+import { onError } from "./laminar.onError.js";
 import { throwMissingCallerError } from "./laminar.errors.js"
 
 export function callFn({ directive, meta }) {
@@ -11,7 +11,7 @@ export function callFn({ directive, meta }) {
 
     if (result && result.catch) {
       result.catch(error => {
-        errorHandler(directive, meta);
+        onError(directive, meta);
         meta.generator.return();
       });
     }
@@ -19,7 +19,7 @@ export function callFn({ directive, meta }) {
     return result;
 
   } catch (error) {
-    errorHandler(directive, meta);
+    onError(directive, meta);
     throw new Error(error);
   }
 }

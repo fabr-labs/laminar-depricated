@@ -1,4 +1,4 @@
-export function errorHandler(directive, { flow, meta, error }) {
+export function onError(directive, { flow, meta, error }) {
   if (directive.onError) {
     directive.onError.forEach(handler => {
       handler({ flow, directive, meta, error })
