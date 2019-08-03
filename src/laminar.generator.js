@@ -3,7 +3,7 @@ import { gotoStep } from "./utilities/goto-step.js"
 import { callFn } from "./laminar.call.js"
 
 export function* flowGeneratorFn({ flow, middleware, args, goto }){
-  for (let [index, directive] of goto ? gotoStep(goto, flow(args).entries()) : flow(args).entries()) {    
+  for (let [index, directive] of gotoStep(goto, flow(args)).entries()) {    
     try {
       if (directive.calls) {
         yield meta => Promise.all(directive.calls.map(asyncDirective => applyMiddleware(callFn, middleware)({ directive: asyncDirective, meta: { ...meta, step: index }})));

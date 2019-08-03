@@ -50,7 +50,7 @@ function retryFetch({ directive, meta, error }) {
    } else {
     meta.retries.set(directive.id, tries + 1);
     setTimeout(() => {
-      meta.pushFlow({ flow: meta.flow, meta });
+      meta.pushFlow({ flow: meta.flow, meta, goto: 'id3' });
     }, tries * 1000);
    }
 }

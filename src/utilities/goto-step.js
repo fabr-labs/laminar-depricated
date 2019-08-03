@@ -1,3 +1,3 @@
-export function gotoStep(id, ary) {
-  return ary.slice(ary.findIndex(step => step.id === id));
+export function gotoStep(id, flow) {
+  return id ? flow.slice(flow.findIndex(step => step.id === id)) : flow;
 }
