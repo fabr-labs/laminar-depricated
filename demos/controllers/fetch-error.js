@@ -44,9 +44,6 @@ function retryFetch({ flow, flowId, directive, context, error }) {
 
 
 function sampleFn(args) {
-
-  console.log('Fn called !!!!!!!!')
-
   console.log(args)
 }
 
@@ -54,8 +51,8 @@ export function fetchErrorFlow() {
   return [
     { id: "id1", call: sampleFn, args: 'step-1'},
     { id: "id2", call: testFn, args: 'step-2'},
-    // { id: "id3", call: throwError, args: 'step-3', onError: [retryFetch] },
-    { id: "id3", call: asyncFetchError, args: 'step-3', onError: [retryFetch] },
+    { id: "id3", call: throwError, args: 'step-3', onError: [retryFetch] },
+    // { id: "id3", call: asyncFetchError, args: 'step-3', onError: [retryFetch] },
     // { id: "id3", call: fetchError, args: 'step-3', onError: [retryFetch] },
     { id: "id4", call: testFn, args: 'step-4' },
     { id: "id5", call: testFn, args: 'step-5' },
