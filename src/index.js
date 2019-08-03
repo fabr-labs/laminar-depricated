@@ -1,4 +1,4 @@
-export { createFlow } from './flow.create.js';
+export { createFlow } from './laminar.create.js';
 export { reduxStoreMiddleware } from './middleware/redux-store/redux-store-middleware.js';
 export { reduceMiddleware } from './middleware/reduce/reduce-middleware.js';
 export { waitMiddleware } from './middleware/wait/wait-middleware.js';

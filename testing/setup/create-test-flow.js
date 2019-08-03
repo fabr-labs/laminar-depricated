@@ -1,5 +1,5 @@
 
-import { createFlow } from "../../src/flow.create.js";
+import { createFlow } from "../../src/laminar.create.js";
 import { testingMiddleware } from "../middleware/testing-middleware.js";
 import { pushFlowMiddleware } from "../../src/middleware/push-flow/push-flow-middleware.js";
 import { saveResponseMiddleware } from "../../src/middleware/save-response/save-response-middleware.js";
