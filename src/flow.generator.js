@@ -1,6 +1,6 @@
 import { applyMiddleware } from "./utilities/apply-middleware.js";
 import { gotoStep } from "./utilities/goto-step.js"
-import { callFn } from "./call-fn.js"
+import { callFn } from "./flow.call.js"
 
 export function* flowGeneratorFn({ flow, middleware, args, goto }){
   for (let [index, directive] of goto ? gotoStep(goto, flow(args).entries()) : flow(args).entries()) {    
