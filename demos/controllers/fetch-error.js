@@ -38,8 +38,21 @@ function throwError() {
   throw new Error('ERR !! BEEP BOOP !!');
 }
 
-function retryFetch({ flow, directive, meta, error }) {
-  console.warn('RETRY FETCH HANDLER!!!!', { flow, directive, meta, error });
+function retryFetch({ directive, meta, error }) {
+   // Catch the type of error ! let's retry 3 times... 
+
+   const tries = meta.retries.get(directive.id) || 1;
+
+   if (tries > 2) {
+    meta.retries.set(directive.id, null);
+    alert('Could not connect to the server');
+    throw new Error('Could not connect to the server');
+   } else {
+    meta.retries.set(directive.id, tries + 1);
+    setTimeout(() => {
+      meta.pushFlow({ flow: meta.flow, meta });
+    }, tries * 1000);
+   }
 }
 
 

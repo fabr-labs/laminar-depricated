@@ -11,7 +11,7 @@ export function callFn({ directive, meta }) {
 
     if (result && result.catch) {
       result.catch(error => {
-        onError(directive, meta);
+        onError({ directive, meta, error });
         meta.generator.return();
       });
     }
@@ -19,7 +19,7 @@ export function callFn({ directive, meta }) {
     return result;
 
   } catch (error) {
-    onError(directive, meta);
+    onError({ directive, meta, error });
     throw new Error(error);
   }
 }
