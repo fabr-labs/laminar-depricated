@@ -5,8 +5,6 @@ export const waitMiddleware = () => {
   const promiseStore = createWait();
 
   const middleware = next => ({ directive, meta }) => {
-
-    console.log(directive, meta)
     
     const nextDirective = 
       directive.wait ?  { call: promiseStore.wait, args: { ...(directive.args || {}), ...directive.wait  }, ...directive } : 
