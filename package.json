@@ -4,7 +4,7 @@
   "author": "nverba <distantstate@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "jest",
     "postversion": "gitpkg publish && git push"
