@@ -1,4 +1,4 @@
-import { required, MissingPromise } from "./errors.js";
+import { required, MissingPromise } from "./custom-errors.js";
 
 export function createPromiseCache() {
   const PromisesCache = new Map();

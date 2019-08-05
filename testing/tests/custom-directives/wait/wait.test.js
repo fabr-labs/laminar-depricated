@@ -1,6 +1,5 @@
-import { flow, steps } from "../../../setup/create-test-flow-with-wait-middleware.js";
-import { resolveWait } from "../../../../src/functions/wait/promise-wait-function.js";
-import { waitFlow } from "./promise-wait-action.flow.js";
+import { flow, steps, resolveWait } from "../../../setup/create-test-flow-with-wait-middleware.js";
+import { waitFlow } from "./wait.flow.js";
 
 
 describe('wait', () => {

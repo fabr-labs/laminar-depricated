@@ -1,6 +1,6 @@
-import { errorFlow } from '../../testing/tests/core-directives/errors/error.flow.js';
-import { stack } from '../flow-stack.js';
+import { errorFlow } from '../../testing/tests/core-directives/onError/error.flow.js';
+import { flowController } from '../flow-controller.js';
 
 export function startErrorFlow() {
-  stack.pushFlow({ flow: errorFlow });
+  flowController.pushFlow({ flow: errorFlow });
 }

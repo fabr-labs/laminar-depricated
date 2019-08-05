@@ -9,10 +9,10 @@ export class DirectiveError extends LaminarError {}
 export class FunctionError extends LaminarError {}
 
 export class flowGeneratorFnError extends LaminarError {
-  constructor(message, { flowId, step }) {
+  constructor(message, { id, step }) {
     super();
     this.message = message;
-    this.flowId = flowId;
+    this.flow = id;
     this.step = step;
   }
 }
@@ -25,8 +25,9 @@ export class CreateFlowError extends LaminarError {
 }
 
 export class MissingCallerError extends flowGeneratorFnError {
-  constructor({ flowId, step }) {
-    super(`A step must contain either a "call" property referencing a single function to be called, or a "calls" property referencing an array of functions to be called asynchronously.`, { flowId, step });
+  constructor({ flowName, step }) {
+    console.error(`MissingCallerError - flow: ${ flowName }, step: ${ step + 1 } (index: ${ step })`);
+    super(`A step must contain either a "call" property referencing a single function to be called, or a "calls" property referencing an array of functions to be called asynchronously.`, { flow: flowName, step });
   }
 }
 
@@ -36,7 +37,12 @@ export class MissingFlowError extends flowGeneratorFnError {
   }
 }
 
-// Default property guard.
+// Default property guards.
+
 export function throwMissingFlowError() {
   throw new MissingFlowError('Missing flow from flow.pushFlow({ flow: Function })');
+}
+
+export function throwMissingCallerError({ flow, step }) {
+  throw new MissingCallerError({ flowName: flow.name, step });
 }

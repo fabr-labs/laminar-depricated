@@ -1,13 +1,14 @@
 
-import { createFlow } from "../../src/create-flow.js";
+import { createFlow } from "../../src/laminar.create.js";
 import { testingMiddleware } from "../middleware/testing-middleware.js";
-// import { promiseWaitMiddleware } from "../../src/middleware/promise-wait/promise-wait-middleware.js";
+import { waitMiddleware } from "../../src/middleware/wait/wait-middleware.js";
 import { testReducer } from "../reducers/test-reducer.js";
 import { createStore } from "../../node_modules/redux/dist/redux.js";
 
-export const store = createStore(testReducer);
-export const steps = testingMiddleware();
+export const steps = testingMiddleware(); 
 
-const middleware = [steps.middleware];
+const waitMiddlewareInstance = waitMiddleware();
+const middleware = [waitMiddlewareInstance, steps.middleware];
 
 export const flow = createFlow({ middleware });
+export const { wait, resolveWait, removeWait } = waitMiddlewareInstance;
