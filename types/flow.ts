@@ -16,7 +16,6 @@ export interface Step {
   };
   saveResponse?: string;
   useResponse?: string;
-  context?: any;
   get?: string;
   put?: { url: string, body: {
     [key: string]: any;
@@ -27,6 +26,7 @@ export interface Step {
   delete?: { url: string, body: {
     [key: string]: any;
   }};
+  validate?: (any) => any;  
 }
 
 export interface Flow {

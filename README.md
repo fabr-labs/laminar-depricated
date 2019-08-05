@@ -1,4 +1,4 @@
-# Laminar flow controller.
+# Laminar flow controllers
 
 ### Core concepts:.
 
