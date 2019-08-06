@@ -27,6 +27,7 @@ export interface Step {
     [key: string]: any;
   }};
   validate?: (any) => any;  
+  reduce?: (any) => any;  
 }
 
 export interface Flow {
