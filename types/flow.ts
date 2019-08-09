@@ -1,6 +1,7 @@
 export interface Step {
   id: string;
   call?: ((any) => any) | Promise<any>;
+  calls?: Step[];
   store?: string;
   dispatch?: {
     type: string;
@@ -27,7 +28,7 @@ export interface Step {
     [key: string]: any;
   }};
   validate?: (any) => any;  
-  reduce?: (any) => any;  
+  reduce?: (any) => any;
 }
 
 export interface Flow {
