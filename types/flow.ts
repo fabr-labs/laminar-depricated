@@ -18,10 +18,10 @@ export interface Step {
   saveResponse?: string;
   useResponse?: string;
   get?: string;
-  put?: { url: string, body: {
+  put?: string | { url: string, body: {
     [key: string]: any;
   }};
-  post?: { url: string, body: {
+  post?: string | { url: string, body: {
     [key: string]: any;
   }};
   delete?: { url: string, body: {
@@ -30,6 +30,8 @@ export interface Step {
   validate?: (any) => any;  
   reduce?: (any) => any;
   onError?: ((any) => void)[];
+  as?: string;
+  dto?: (any) => any;
 }
 
 export interface Flow {
