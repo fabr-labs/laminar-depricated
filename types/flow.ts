@@ -29,6 +29,7 @@ export interface Step {
   }};
   validate?: (any) => any;  
   reduce?: (any) => any;
+  onError?: ((any) => void)[];
 }
 
 export interface Flow {
