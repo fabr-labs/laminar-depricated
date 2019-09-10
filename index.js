@@ -6,3 +6,4 @@ export * from './src/middleware/push-flow/push-flow-middleware.js';
 export * from './src/middleware/save-response/save-response-middleware.js';
 export * from './src/middleware/fetch/fetch-middleware.js';
 export * from './src/middleware/validate/validate-response-middleware.js';
+export * from './src/middleware/options/options.middleware.js';
