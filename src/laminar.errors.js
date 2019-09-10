@@ -8,7 +8,7 @@ export class LaminarError extends Error {
 export class DirectiveError extends LaminarError {}
 export class FunctionError extends LaminarError {}
 
-export class flowGeneratorFnError extends LaminarError {
+export class FlowGeneratorFnError extends LaminarError {
   constructor(message, { id, step }) {
     super();
     this.message = message;
@@ -24,14 +24,14 @@ export class CreateFlowError extends LaminarError {
   }
 }
 
-export class MissingCallerError extends flowGeneratorFnError {
+export class MissingCallerError extends FlowGeneratorFnError {
   constructor({ flowName, step }) {
     console.error(`MissingCallerError - flow: ${ flowName }, step: ${ step + 1 } (index: ${ step })`);
     super(`A step must contain either a "call" property referencing a single function to be called, or a "calls" property referencing an array of functions to be called asynchronously.`, { flow: flowName, step });
   }
 }
 
-export class MissingFlowError extends flowGeneratorFnError {
+export class MissingFlowError extends CreateFlowError {
   constructor(message) {
     super(message);
   }
