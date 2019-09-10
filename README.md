@@ -2,7 +2,7 @@
 
 ### Core concepts:.
 
-A laminar flow controller steps through arrays of instructions (called flows), and executes each step in turn, each after the last has completed.
+A laminar flow controller steps through arrays of instructions (called flows), and dispatches each step in turn, each after the last has completed. If the function being called by the step returns a promise, the controller will wait for the promise to complete before dispatching the next step. 
 
 Each step is a plain javascript object, and each property on the object is a directive. Directives add functionality to the steps and allow us to declaratively describe what we want the step to do.  
 
