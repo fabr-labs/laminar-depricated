@@ -11,4 +11,4 @@ const pushFlowMiddleware = next => ({ directive, meta }) => {
   return next({ directive, meta })
 };
 
-export default pushFlowMiddleware;
+export { pushFlowMiddleware };

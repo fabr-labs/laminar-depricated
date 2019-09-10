@@ -11,4 +11,4 @@ const optionsMiddleware = next => ({ directive, meta }) => {
   return response;
 };
 
-export default optionsMiddleware;
+export { optionsMiddleware };
