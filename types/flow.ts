@@ -1,6 +1,7 @@
 export interface Step {
   id: string;
   call?: ((any) => any) | Promise<any>;
+  calls?: Step[];
   store?: string;
   dispatch?: {
     type: string;
@@ -17,16 +18,20 @@ export interface Step {
   saveResponse?: string;
   useResponse?: string;
   get?: string;
-  put?: { url: string, body: {
+  put?: string | { url: string, body: {
     [key: string]: any;
   }};
-  post?: { url: string, body: {
+  post?: string | { url: string, body: {
     [key: string]: any;
   }};
   delete?: { url: string, body: {
     [key: string]: any;
   }};
   validate?: (any) => any;  
+  reduce?: (any) => any;
+  onError?: ((any) => void)[];
+  as?: string;
+  dto?: (any) => any;
 }
 
 export interface Flow {

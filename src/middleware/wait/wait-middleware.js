@@ -7,9 +7,9 @@ export const waitMiddleware = () => {
   const middleware = next => ({ directive, meta }) => {
     
     const nextDirective = 
-      directive.wait ?  { call: promiseStore.wait, args: { ...(directive.args || {}), ...directive.wait  }, ...directive } : 
-      directive.resolveWait ? { call: promiseStore.resolveWait, args: { ...(directive.args || {}), ...directive.resolveWait  }, ...directive } : 
-      directive.removeWait ? { call: promiseStore.removeWait, args: { ...(directive.args || {}), ...directive.removeWait }, ...directive } : 
+      directive.wait ?  { ...directive, call: promiseStore.wait, args: { ...(directive.args || {}), ...directive.wait  }} : 
+      directive.resolveWait ? { ...directive, call: promiseStore.resolveWait, args: { ...(directive.args || {}), ...directive.resolveWait  }} : 
+      directive.removeWait ? { ...directive, call: promiseStore.removeWait, args: { ...(directive.args || {}), ...directive.removeWait }} : 
       directive;
 
       const result = next({ directive: nextDirective, meta })

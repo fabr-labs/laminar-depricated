@@ -1,10 +1,11 @@
 {
   "name": "laminar",
-  "version": "1.2.18",
+  "version": "1.2.27",
   "author": "nverba <distantstate@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "src/index.js",
+  "main": "bundle.js",
+  "module": "index.js",
   "scripts": {
     "test": "jest",
     "postversion": "gitpkg publish && git push"
@@ -16,7 +17,8 @@
     "babel-jest": "^24.8.0",
     "gitpkg": "^1.0.0-beta.1",
     "jest": "^24.8.0",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "rollup": "^1.18.0"
   },
   "babel": {
     "presets": [
