@@ -1,7 +1,7 @@
 import { flow, steps } from "../../../setup/create-test-flow.js";
 import { errorFlow } from "./error.flow.js";
 
-import { MissingCallerError } from '../../../../src/laminar.errors.js';
+import { MissingCallerError } from '../../../../src/laminar-errors.js';
 
 describe.skip('Error directives', () => {
   test(`It throws an error when 'call' and 'calls' are both undefined`, () => {
