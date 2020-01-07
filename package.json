@@ -4,7 +4,6 @@
   "author": "nverba <distantstate@gmail.com>",
   "license": "MIT",
   "private": false,
-  "main": "bundle.js",
   "module": "index.js",
   "scripts": {
     "test": "jest",

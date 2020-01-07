@@ -20,21 +20,6 @@ The call directive can also take asynchronous functions that return a promise as
 
 So, in this way, we can execute asynchronous code in a synchronous way.
 
-But what about actually executing asynchronous code when we don't care about order of execution?
-
-Instead of using the call directive we can pass an array of steps to the calls directive. This time, the flowController will wait for all the steps to return before executing the next. 
-
-This works for synchronous and asynchronous functions (à la Promise.all).
-
-```JavaScript
-{
-  id: 'myFirstAsyncStep', calls: [
-    { id: 'aStep', call: someFunc, args: { one: 1 },
-    { id: 'anotherStep', call: anotherFunc, args: { two: 2 }}}
-  ]
-}
-```
-
 ## Installation: 
 ```
 yarn add coach-logic/laminar#laminar-v<latest-version>-gitpkg

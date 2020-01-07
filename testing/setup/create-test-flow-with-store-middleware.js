@@ -1,7 +1,7 @@
 
 import { createFlow } from "../../src/laminar.create.js";
-import { flowEventsMiddleware } from "../../src/middleware/flow-events/flow-events-middleware.js";
-import { reduxStoreMiddleware } from "../../src/middleware/redux-store/redux-store-middleware.js";
+import { flowEventsMiddleware } from "../../src/middleware/flow-events/flow-events.middleware.js";
+import { reduxStoreMiddleware } from "../../src/middleware/redux-store/redux-store.middleware.js";
 import { testReducer } from "../reducers/test-reducer.js";
 import { createStore } from "../../node_modules/redux/dist/redux.js";
 

@@ -1,10 +1,10 @@
-import { flow, steps } from "../../../setup/create-test-flow.js";
+import { flow, flowEvents } from "../../../setup/create-test-flow.js";
 import { errorFlow } from "./error.flow.js";
 
 import { MissingCallerError } from '../../../../src/laminar.errors.js';
 
 describe.skip('Error directives', () => {
-  test(`It throws an error when 'call' and 'calls' are both undefined`, () => {
+  test.skip(`It throws an error when 'call' and 'calls' are both undefined`, () => {
     // const spy = jest.spyOn(global.console, 'error')
 
     // expect(() => {
