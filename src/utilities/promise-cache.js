@@ -3,49 +3,39 @@ import { required, MissingPromise } from "./custom-errors.js";
 export function createPromiseCache() {
   const PromisesCache = new Map();
 
-  const hasPromise = (id = required("id")) =>
-    PromisesCache.has(id);
+  function getPromiseCacheObject(id) {
+    return PromisesCache.get(id);
+  }
 
-  const getPromise = (id = required("id")) =>
-    _getPromiseCacheObject(id).promise;
+  function deletePromiseCacheObject(id) {
+    return PromisesCache.delete(id);
+  }
 
-  const resolvePromise = (id = required("id"), response) =>
-    _getPromiseCacheObject(id).resolve(response);
+  function hasPromise(id = required("id")) {
+    return PromisesCache.has(id);
+  }
+   
+  function getPromise(id = required("id")) {
+    return getPromiseCacheObject(id).promise;
+  }
+    
+  function resolvePromise(id = required("id"), response) {
+    return getPromiseCacheObject(id).resolve(response);
+  }
 
-  const removePromise = (id = required("id")) =>
-    _deletePromiseCacheObject(id);
+  function removePromise(id = required("id")) {
+    return deletePromiseCacheObject(id);
+  }
 
-  const createPromise = (id = required("id")) => {
+  function createPromise(id = required("id")) {
     let res, rej;
     let promise = new Promise((resolve, reject) => {
       res = resolve;
       rej = reject;
     });
-    PromisesCache.set(id, { resolve: res, reject: rej, promise: promise });
+    PromisesCache.set(id, { resolve: res, reject: rej, promise });
     return promise;
   };
-
-  function _getPromiseCacheObject(id) {
-    try {
-      return PromisesCache.get(id);
-    } catch (error) {
-      if (!PromisesCache.has(id)) {
-        throw new MissingPromise(`!!! Promise id ${id} not found !!!`);
-      }
-      throw error;
-    }
-  }
-
-  function _deletePromiseCacheObject(id) {
-    try {
-      if (PromisesCache.has(id)) {
-        return PromisesCache.delete(id);
-      }
-      return false;
-    } catch (error) {
-      throw error;
-    }
-  }
 
   return {
     hasPromise,

@@ -1,11 +1,11 @@
-import { flow, steps } from "../../../setup/create-test-flow.js";
-import { callsFlow } from "./calls.flow.js";
+import { flow, steps } from "../../../setup/create-test-flow-with-promise-all-middleware";
+import { promiseAllFlow } from "./all.test.flow.js";
 
 describe('Core directives', () => {
 
   beforeAll(() => {
     steps.cleanup();
-    flow.pushFlow({ flow: callsFlow });
+    flow.pushFlow({ flow: promiseAllFlow });
   });
 
   test('It runs the calls directive', async () => {
