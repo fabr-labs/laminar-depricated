@@ -1,25 +1,13 @@
 import { onError } from "./laminar.onError.js";
 import { throwMissingCallerError } from "./laminar.errors.js"
 
-export function callFn({ directive, meta }) {
+export async function callFn({ directive, meta, tries, resolved }) {
 
   const { call: fn = throwMissingCallerError(meta), args } = directive;
 
   try {
-
-    const result = fn.call(null, args);
-
-    if (result && result.catch) {
-      result.catch(error => {
-        onError({ directive, meta, error });
-        meta.generator.return();
-      });
-    }
-
-    return result;
-
+    return await fn.call(null, args);
   } catch (error) {
-    onError({ directive, meta, error });
-    throw new Error(error);
+    return onError({ directive, meta, error, tries, resolved });
   }
 }
