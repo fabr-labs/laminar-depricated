@@ -7,8 +7,8 @@ function flowStep(step) {
 
 export const promiseAllMiddleware = next => ({ directive, meta }) => {
 
-  if (directive.promiseAll) {
-    return next({ directive: { ...directive, call: () => Promise.all(directive.promiseAll.map(directive => meta.pushFlow({ flow: flowStep(directive) }))) }, meta });
+  if (directive.all) {
+    return next({ directive: { ...directive, call: () => Promise.all(directive.all.map(directive => meta.pushFlow({ flow: flowStep(directive) }))) }, meta });
   }
 
   return next({ directive, meta })
