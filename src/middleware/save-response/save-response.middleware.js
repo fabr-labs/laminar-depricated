@@ -4,7 +4,16 @@ export const saveResponseMiddleware = () => {
 
   const middleware = next => ({ directive, meta }) => {
 
-    const result = next({ directive: directive.useResponse ? { ...directive, args: { [directive.useResponse]: responseStore.get(directive.useResponse), ...(directive.args || {}) } } : directive, meta });
+    if (directive.returnResponse) {
+      return next({ directive: directive.returnResponse ? { ...directive, args: { [directive.returnResponse]: responseStore.get(directive.returnResponse), ...(directive.args || {}) } } : directive, meta });
+    }
+
+    if (directive.useResponse) {
+      const { useResponse, ...rest } = directive;
+      return next({ directive: { ...rest, ...(useResponse(responseStore))}, meta });
+    }
+
+    const result = next({ directive, meta });
   
     if (directive.saveResponse) {
       if (result.then) {
