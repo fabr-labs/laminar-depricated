@@ -1,5 +1,5 @@
 import { flow, flowEvents } from "../../../setup/create-test-flow-with-reduce-middleware.js";
-import { reduceFlow } from "./reduce.middleware.flow.js";
+import { reduceFlow } from "./reduce-middleware.flow.js";
 
 describe('Custom directives', () => {
 

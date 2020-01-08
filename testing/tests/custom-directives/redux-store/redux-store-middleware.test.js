@@ -1,5 +1,5 @@
 import { flow, flowEvents, store } from "../../../setup/create-test-flow-with-store-middleware.js";
-import { storeFlow } from "./redux-store.middleware.flow.js";
+import { storeFlow } from "./redux-store-middleware.flow.js";
 
 describe('Custom directives', () => {
 
