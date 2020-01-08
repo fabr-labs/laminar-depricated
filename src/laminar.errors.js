@@ -5,9 +5,6 @@ export class LaminarError extends Error {
   }
 }
 
-export class DirectiveError extends LaminarError {}
-export class FunctionError extends LaminarError {}
-
 export class FlowGeneratorFnError extends LaminarError {
   constructor(message, { id, step }) {
     super();
