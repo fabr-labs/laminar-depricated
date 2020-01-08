@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-const pushFlowMiddleware = next => ({ directive, meta }) => {
+export const pushFlowMiddleware = next => ({ directive, meta }) => {
   if (directive.pushFlow) {
     if (directive.pushFlow.flow) {
       // Manage plain object passed as push flow argument.
@@ -10,5 +10,3 @@ const pushFlowMiddleware = next => ({ directive, meta }) => {
   }
   return next({ directive, meta })
 };
-
-export { pushFlowMiddleware };

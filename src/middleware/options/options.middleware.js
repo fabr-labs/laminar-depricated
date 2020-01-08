@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-const optionsMiddleware = next => ({ directive, meta }) => {
+export const optionsMiddleware = next => ({ directive, meta }) => {
   const response = next({ directive, meta });
 
   if (directive.options) {
@@ -10,5 +10,3 @@ const optionsMiddleware = next => ({ directive, meta }) => {
 
   return response;
 };
-
-export { optionsMiddleware };

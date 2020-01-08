@@ -1,5 +1,5 @@
-import { onError } from "./laminar.onError.js";
-import { throwMissingCallerError } from "./laminar.errors.js"
+import { onError } from "./lamnr.onError.js";
+import { throwMissingCallerError } from "./lamnr.errors.js"
 
 export async function callFn({ directive, meta, tries, resolved }) {
 

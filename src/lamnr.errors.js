@@ -1,11 +1,11 @@
-export class LaminarError extends Error {
+export class LamnrError extends Error {
   constructor(message) {
     super();
     this.message = message;
   }
 }
 
-export class FlowGeneratorFnError extends LaminarError {
+export class FlowGeneratorFnError extends LamnrError {
   constructor(message, { id, step }) {
     super();
     this.message = message;
@@ -14,7 +14,7 @@ export class FlowGeneratorFnError extends LaminarError {
   }
 }
 
-export class CreateFlowError extends LaminarError {
+export class CreateFlowError extends LamnrError {
   constructor(message) {
     super();
     this.message = message;

@@ -1,4 +1,4 @@
-export * from './src/laminar.create.js';
+export * from './src/lamnr.create.js';
 
 export * from './src/middleware/console-log/console-log.middleware.js';
 export * from './src/middleware/fetch/fetch.middleware.js';

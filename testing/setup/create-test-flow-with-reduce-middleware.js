@@ -1,5 +1,5 @@
 
-import { createFlow } from "../../src/laminar.create.js";
+import { createFlow } from "../../src/lamnr.create.js";
 import { flowEventsMiddleware } from "../../src/middleware/flow-events/flow-events.middleware.js";
 import { reduceMiddleware } from "../../src/middleware/reduce/reduce.middleware.js";
 import { reduxStoreMiddleware } from "../../src/middleware/redux-store/redux-store.middleware.js";

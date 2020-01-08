@@ -1,4 +1,4 @@
-import { callFn } from './laminar.call.js';
+import { callFn } from './lamnr.call.js';
 import { applyMiddleware } from './utilities/apply-middleware.js';
 
 export const config = {
