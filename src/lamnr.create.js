@@ -6,7 +6,7 @@ export function createFlow({ middleware=[] }) {
     pushFlow: async function pushFlow({ flow=throwMissingFlowError(), args = {}, goto, meta }) {
       const generator = flowGeneratorFn({ flow, goto, args, middleware });
       for (const directive of generator) {
-        await directive({ ...meta, pushFlow, generator, flow });
+        await directive({ ...meta, pushFlow, generator });
       }
     }
   }
