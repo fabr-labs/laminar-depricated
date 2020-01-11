@@ -51,7 +51,7 @@ export function fetchErrorFlow() {
     { id: "A", call: sampleFn, args: '#1'},
     { id: "B", call: testFn, args: '#2'},
     // { id: "C", call: throwError, args: '#3a', onError: [onErrorMiddleware] },
-    // { id: "D", call: asyncFetchError, args: '#3b', onError: [onErrorMiddleware] },
+    { id: "D", call: asyncFetchError, args: '#3b', onError: [onErrorMiddleware] },
     // { id: "E", call: fetchError, args: '#3c', onError: [onErrorMiddleware] },
     { id: "F", call: testFn, args: '#4' },
     { id: "G", call: testFn, args: '#5' },

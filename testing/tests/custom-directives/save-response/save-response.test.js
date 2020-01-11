@@ -7,15 +7,15 @@ describe('Core directives', () => {
     flowEvents.cleanup();
   });
 
-  test('It saves a response and passes it as an argument', async () => {
+  test('It saves a response and can be passed as an argument', async () => {
     flow.pushFlow({ flow: saveResponse });
     expect.assertions(1);
 
     const response = await flowEvents.on({ id: 'id2a' });
-    expect(response).toEqual({ savedKey1: { saved: true }, passed: true });
+    expect(response).toEqual({ saved: true, passed: true });
   });
 
-  test('It saves a response from and passes it as an argument', async () => {
+  test('It saves a response and can start a flow conditionally', async () => {
     flow.pushFlow({ flow: useResponseAsPushFlowArg });
     expect.assertions(5);
 

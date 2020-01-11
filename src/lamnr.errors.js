@@ -6,11 +6,11 @@ export class LamnrError extends Error {
 }
 
 export class FlowGeneratorFnError extends LamnrError {
-  constructor(message, { id, step }) {
+  constructor(message, { id, index }) {
     super();
     this.message = message;
     this.flow = id;
-    this.step = step;
+    this.index = index;
   }
 }
 
@@ -22,9 +22,9 @@ export class CreateFlowError extends LamnrError {
 }
 
 export class MissingCallerError extends FlowGeneratorFnError {
-  constructor({ flowName, step }) {
-    console.error(`MissingCallerError - flow: ${ flowName }, step: ${ step + 1 } (index: ${ step })`);
-    super(`A step must contain either a "call" property referencing a single function to be called, or a "calls" property referencing an array of functions to be called asynchronously.`, { flow: flowName, step });
+  constructor({ flowName, index }) {
+    console.error(`MissingCallerError - flow: ${ flowName }, index: ${ index + 1 } (index: ${ index })`);
+    super(`A index must contain either a "call" property referencing a single function to be called, or a "calls" property referencing an array of functions to be called asynchronously.`, { flow: flowName, index });
   }
 }
 
@@ -40,6 +40,6 @@ export function throwMissingFlowError() {
   throw new MissingFlowError('Missing flow from flow.pushFlow({ flow: Function })');
 }
 
-export function throwMissingCallerError({ flow, step }) {
-  throw new MissingCallerError({ flowName: flow.name, step });
+export function throwMissingCallerError({ flow, index }) {
+  throw new MissingCallerError({ flowName: flow.name, index });
 }
