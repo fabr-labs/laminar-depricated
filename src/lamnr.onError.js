@@ -5,7 +5,7 @@ export const config = {
   unhandledError: null
 }
 
-export function onError({ directive, meta, error, tries = 3, resolved = false }) {
+export function onError({ directive, meta, error, tries = 1, resolved = false }) {
   if (directive.onError && tries && !resolved) {
     return applyMiddleware(callFn, directive.onError)({ directive, meta, error, tries: tries -1, resolved });
   } else {

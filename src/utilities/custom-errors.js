@@ -1,6 +1,1 @@
-export class MissingPromise       extends Error {}
-export class MissingRequiredParam extends Error {}
-
-export function required(param) {
-  throw new MissingRequiredParam(param);
-}
+export class Required extends Error {}

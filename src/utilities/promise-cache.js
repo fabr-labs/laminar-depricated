@@ -1,4 +1,4 @@
-import { required, MissingPromise } from "./custom-errors.js";
+import { Required } from "./custom-errors.js";
 
 export function createPromiseCache() {
   const PromisesCache = new Map();
@@ -11,23 +11,23 @@ export function createPromiseCache() {
     return PromisesCache.delete(id);
   }
 
-  function hasPromise(id = required("id")) {
+  function hasPromise(id = () => { throw new Required("id") }) {
     return PromisesCache.has(id);
   }
    
-  function getPromise(id = required("id")) {
+  function getPromise(id = () => { throw new Required("id") }) {
     return getPromiseCacheObject(id).promise;
   }
     
-  function resolvePromise(id = required("id"), response) {
+  function resolvePromise(id = () => { throw new Required("id")}, response) {
     return getPromiseCacheObject(id).resolve(response);
   }
 
-  function removePromise(id = required("id")) {
+  function removePromise(id = () => { throw new Required("id") }) {
     return deletePromiseCacheObject(id);
   }
 
-  function createPromise(id = required("id")) {
+  function createPromise(id = () => { throw new Required("id") }) {
     let res, rej;
     let promise = new Promise((resolve, reject) => {
       res = resolve;

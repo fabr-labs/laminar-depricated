@@ -1,4 +1,5 @@
 import { testFn } from "../helpers/test-fn.js";
+import { throwError } from "../functions/throw-err-functions.js";
 
 async function get(url) {
   const response = await fetch(url, {
@@ -28,11 +29,6 @@ function fetchError() {
   }
 }
 
-function throwError() {
-  throw new Error('THROWN ERR !! BEEP BOOP !!');
-}
-
-
 function sampleFn(args) {
   console.log(args)
 }
@@ -50,9 +46,10 @@ export function fetchErrorFlow() {
   return [
     { id: "A", call: sampleFn, args: '#1'},
     { id: "B", call: testFn, args: '#2'},
-    // { id: "C", call: throwError, args: '#3a', onError: [onErrorMiddleware] },
-    { id: "D", call: asyncFetchError, args: '#3b', onError: [onErrorMiddleware] },
+    { id: "C", call: throwError, args: '#3a', onError: [onErrorMiddleware] },
+    // { id: "D", call: asyncFetchError, args: '#3b', onError: [onErrorMiddleware] },
     // { id: "E", call: fetchError, args: '#3c', onError: [onErrorMiddleware] },
+    // { id: "ThisIsaSpecialStep", args: 'specialValue'},
     { id: "F", call: testFn, args: '#4' },
     { id: "G", call: testFn, args: '#5' },
   ];
