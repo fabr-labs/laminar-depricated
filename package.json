@@ -4,10 +4,12 @@
   "author": "nverba <distantstate@gmail.com>",
   "license": "MIT",
   "private": false,
+  "main": "bundle.js",
   "module": "index.js",
   "scripts": {
     "test": "jest",
-    "postversion": "gitpkg publish && git push"
+    "postversion": "gitpkg publish && git push",
+    "bundle": "rollup index.js --format cjs --file bundle.js"
   },
   "dependencies": {},
   "devDependencies": {
