@@ -9,16 +9,18 @@ function generateErrorFn(i = 0) {
   }
 }
 
-export const onErrorMiddleware = next => async ({ directive, meta, error, tries, resolved }) => {
+export function onErrorMiddleware(next, meta) {
+  return async ({ directive, error, tries, resolved }) => {
 
-  if (error.message === `sampleError`) {
-    meta.pushFlow({ flow: onErrorFlow });
-  }
-
-  const result = next({ directive, meta, error, tries, resolved });
-
-  return result;
-};
+    if (error.message === `sampleError`) {
+      meta.pushFlow({ flow: onErrorFlow });
+    }
+  
+    const result = next({ directive, error, tries, resolved });
+  
+    return result;
+  };
+} 
 
 export function testErrorFlow() { 
   const errorFn = generateErrorFn(1);

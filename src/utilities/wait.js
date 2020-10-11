@@ -2,7 +2,7 @@ import { createPromiseCache } from './promise-cache.js';
 
 export function createWait() {
 
-  let cache = createPromiseCache();
+  const cache = createPromiseCache();
 
   /**
   * @param   {String}  on - The key for referencing the generated promise in promise-cache.

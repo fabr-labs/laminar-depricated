@@ -1,4 +1,4 @@
-export * from './src/lamnr.create.js';
+export * from './src/createFlow.js';
 
 export * from './src/middleware/console-log/console-log.middleware.js';
 export * from './src/middleware/fetch/fetch.middleware.js';
@@ -12,11 +12,3 @@ export * from './src/middleware/redux-store/redux-store.middleware.js';
 export * from './src/middleware/save-response/save-response.middleware.js';
 export * from './src/middleware/validate/validate-response.middleware.js';
 export * from './src/middleware/wait/wait.middleware.js';
-
-
-
-
-
-
-
-

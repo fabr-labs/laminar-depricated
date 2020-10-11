@@ -1,3 +1,3 @@
 export function throwError() {
-  throw new Error('THROWN ERR !! BEEP BOOP !!');
+  window.doesntExist.property += 1;
 }

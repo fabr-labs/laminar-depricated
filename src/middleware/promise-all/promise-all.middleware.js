@@ -1,7 +1,7 @@
 
-function flowStep(step) {
+function flowStep(directive) {
   return () => [
-    step
+    directive
   ]
 }
 

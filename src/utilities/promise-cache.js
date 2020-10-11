@@ -1,5 +1,3 @@
-import { Required } from "./custom-errors.js";
-
 export function createPromiseCache() {
   const PromisesCache = new Map();
 
@@ -11,23 +9,23 @@ export function createPromiseCache() {
     return PromisesCache.delete(id);
   }
 
-  function hasPromise(id = () => { throw new Required("id") }) {
+  function hasPromise(id) {
     return PromisesCache.has(id);
   }
    
-  function getPromise(id = () => { throw new Required("id") }) {
+  function getPromise(id) {
     return getPromiseCacheObject(id).promise;
   }
     
-  function resolvePromise(id = () => { throw new Required("id")}, response) {
+  function resolvePromise(id, response) {
     return getPromiseCacheObject(id).resolve(response);
   }
 
-  function removePromise(id = () => { throw new Required("id") }) {
+  function removePromise(id) {
     return deletePromiseCacheObject(id);
   }
 
-  function createPromise(id = () => { throw new Required("id") }) {
+  function createPromise(id) {
     let res, rej;
     let promise = new Promise((resolve, reject) => {
       res = resolve;

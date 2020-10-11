@@ -1,5 +1,5 @@
 
-import { createFlow } from "../../src/lamnr.create.js";
+import { createFlow } from "../../src/createFlow.js";
 import { flowEventsMiddleware } from "../../src/middleware/flow-events/flow-events.middleware.js";
 import { pushFlowMiddleware } from "../../src/middleware/push-flow/push-flow.middleware.js";
 import { saveResponseMiddleware } from "../../src/middleware/save-response/save-response.middleware.js";
