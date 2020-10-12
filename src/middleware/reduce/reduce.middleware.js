@@ -1,6 +1,6 @@
-export const reduceMiddleware = next => ({ directive, meta }) => {
+export const reduceMiddleware = next => directive => {
 
-  const result = next({ directive, meta });
+  const result = next(directive);
 
   if (directive.reduce) {
     if (result.then) {

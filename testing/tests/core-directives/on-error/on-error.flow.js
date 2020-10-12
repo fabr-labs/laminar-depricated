@@ -9,6 +9,13 @@ function generateErrorFn(i = 0) {
   }
 }
 
+
+export function onErrorFlow() { 
+  return [
+    { id: `B1`, call: testFn, args: `#4` }
+  ];
+}
+
 export function onErrorMiddleware(next, meta) {
   return async ({ directive, error, tries, resolved }) => {
 
@@ -32,8 +39,3 @@ export function testErrorFlow() {
   ];
 }
 
-export function onErrorFlow() { 
-  return [
-    { id: `B1`, call: testFn, args: `#4` }
-  ];
-}

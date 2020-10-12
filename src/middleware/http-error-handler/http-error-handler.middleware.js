@@ -1,10 +1,10 @@
-export const httpErrorHandlerMiddleware = (globalErrorHandlers) => next => ({ directive, meta }) => {
+export const httpErrorHandlerMiddleware = (globalErrorHandlers) => next => (directive) => {
  
   if (directive.get || directive.put || directive.post || directive.delete) {
-    const result = next({ directive: { ...directive, onError: [...globalErrorHandlers, ...(directive.onError || [])] }, meta });
+    const result = next({ ...directive, onError: [...globalErrorHandlers, ...(directive.onError || [])] });
     return result;
   }
 
-  const result = next({ directive, meta });
+  const result = next(directive);
   return result;
 };

@@ -13,15 +13,12 @@ export const statsMiddleware = ({ subscribe, log }) => {
   const observer2 = new PerformanceObserver(perf_observer);
   observer2.observe({entryTypes: ["measure"]});
 
-  return next => async ({ directive, meta }) => {
+  return next => async (directive) => {
     const { startTime } = window.performance.mark('START_FLOW_STEP');
-    const result = await next({ directive, meta });
-
-    // console.log(this);
-    // console.log(directive);
+    const result = await next(directive);
   
     window.performance.measure('FLOW_STEP_PERF', {
-      detail: { directive: directive.id, i: meta.index, args: JSON.stringify(directive.args) },
+      detail: { directive: directive.id, args: JSON.stringify(directive.args) },
       start: startTime,
     }); 
     return result;

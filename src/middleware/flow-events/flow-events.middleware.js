@@ -31,9 +31,9 @@ export const flowEventsMiddleware = () => {
     responses.clear();
   }
 
-  const middleware = next => ({ directive, meta }) => {
+  const middleware = next => directive => {
     const id = directive.id;
-    const result = next({ directive, meta });
+    const result = next(directive);
 
     if (result && result.then) {
       result.then(response => {

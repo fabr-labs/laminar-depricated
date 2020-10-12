@@ -2,18 +2,18 @@ export const saveResponseMiddleware = () => {
 
   const responseStore = new Map();
 
-  const middleware = next => ({ directive, meta }) => {
+  const middleware = next => (directive) => {
 
     if (directive.returnResponse) {
-      return next({ directive: directive.returnResponse ? { ...directive, args: { [directive.returnResponse]: responseStore.get(directive.returnResponse), ...(directive.args || {}) } } : directive, meta });
+      return next(directive.returnResponse ? { ...directive, args: { [directive.returnResponse]: responseStore.get(directive.returnResponse), ...(directive.args || {}) } } : directive);
     }
 
     if (directive.useResponse) {
       const { useResponse, ...rest } = directive;
-      return next({ directive: { ...rest, ...(useResponse(responseStore))}, meta });
+      return next({ ...rest, ...(useResponse(responseStore))});
     }
 
-    const result = next({ directive, meta });
+    const result = next(directive);
   
     if (directive.saveResponse) {
       if (result.then) {

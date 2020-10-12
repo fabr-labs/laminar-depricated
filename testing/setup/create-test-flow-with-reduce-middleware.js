@@ -9,6 +9,6 @@ import { createStore } from "../../node_modules/redux/dist/redux.js";
 export const store = createStore(testReducer);
 
 export const flowEvents = flowEventsMiddleware();
-const middleware = [reduceMiddleware, reduxStoreMiddleware(store), flowEvents.middleware];
+const middleware = [flowEvents.middleware, reduxStoreMiddleware(store), reduceMiddleware];
 
 export const flow = createFlow({ middleware });

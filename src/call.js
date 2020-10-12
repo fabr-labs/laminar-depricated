@@ -4,6 +4,6 @@ export async function call({ id, call: fn, args, onError: errorMiddleware }, met
   try {
     return await fn.call(null, args);
   } catch (error) {
-    return await onError({ id, fn, args, meta, error, errorMiddleware });
+    return onError({ id, fn, args, meta, error, errorMiddleware });
   }
 }

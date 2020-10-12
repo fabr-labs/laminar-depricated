@@ -1,10 +1,9 @@
 
 import { createFlow } from "../../src/createFlow.js";
 import { flowEventsMiddleware } from "../../src/middleware/flow-events/flow-events.middleware.js";
-import { pushFlowMiddleware } from "../../src/middleware/push-flow/push-flow.middleware.js";
 import { saveResponseMiddleware } from "../../src/middleware/save-response/save-response.middleware.js";
 
 export const flowEvents = flowEventsMiddleware();
-const middleware = [pushFlowMiddleware, saveResponseMiddleware(), flowEvents.middleware];
+const middleware = [flowEvents.middleware, saveResponseMiddleware()];
 
 export const flow = createFlow({ middleware });

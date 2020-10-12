@@ -1,7 +1,7 @@
-export const reduxStoreMiddleware = store => next => ({ directive, meta }) => {
+export const reduxStoreMiddleware = store => next => (directive) => {
 
   // Handle direct dispatch.
-  const result = next({ directive: directive.dispatch ? { call: () => store.dispatch(directive.dispatch), ...directive } : directive, meta });
+  const result = next(directive.dispatch ? { call: () => store.dispatch(directive.dispatch), ...directive } : directive);
 
   // Save response to store.
   if (directive.store) {
