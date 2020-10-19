@@ -2,6 +2,9 @@ import { testFn } from '../../../helpers/test-fn.js';
 
 function generateErrorFn(i = 0) {
   let errorTries = i + 1;
+
+  console.log('ERR');
+
   return (arg) => {
     errorTries -= 1;
     if (errorTries) throw new Error(`sampleError`);
@@ -18,6 +21,8 @@ export function onErrorFlow() {
 
 export function onErrorMiddleware(next, meta) {
   return async ({ directive, error, tries, resolved }) => {
+
+    console.log('onErrorMiddleware', next, meta)
 
     if (error.message === `sampleError`) {
       meta.pushFlow({ flow: onErrorFlow });

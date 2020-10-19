@@ -6,16 +6,16 @@ import { statsMiddleware } from '../../src/middleware/stats/stats.middleware.js'
 const waitMiddlewareInstance = waitMiddleware();
 
 export function otherTestMiddleware() {
-  return function(next) {
-    return (step) => {
-      return next(step)
+  return (next) => {
+    return (directive) => {
+      return next(directive)
     }
   }
 }
 
 export function testMiddleware(next) {
-  return (step) => {
-    return next(step)
+  return (directive) => {
+    return next(directive)
   }
 }
 

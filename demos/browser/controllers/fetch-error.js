@@ -37,7 +37,7 @@ export const onErrorMiddleware = next => async ({ directive, meta, error, tries,
 
   console.log('MIDDLEWARE CAUGHT ERROR', error);
 
-  const result = next({ directive, meta, error, tries, resolved });
+  const result = next({ directive, meta, error, tries, resolved: true });
 
   return result;
 };
